@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="">
+	<user type="client" id="1">
+		<name>
+            <first>Stephen</first>
+            <last>Peterson</last>
+        </name>
+		<login>
+			<username>Stewie</username>
+			<password>Shorts</password>
+		</login>
+        <email>client@email.com</email>
+        <location>Paris</location>
+	</user>
+
+	<user type="support" id="2">
+		<name>
+            <first>Archebald</first>
+            <last>Gillihan</last>
+        </name>
+		<login>
+			<username>Archie</username>
+			<password>Pants</password>
+		</login>
+        <email>admin@email.com</email>
+        <location>Toronto</location>
+	</user>
+    
+	<user type="support" id="3">
+		<name>
+            <first>Goggi</first>
+            <last>Gillihan</last>
+        </name>
+		<login>
+			<username>Arnold</username>
+			<password>Heimler</password>
+		</login>
+        <email>admin@email.com</email>
+        <location>Toronto</location>
+	</user>
+    
+
+</users>
