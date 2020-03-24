@@ -5,10 +5,11 @@
        <ul class="nav-links">
            <li><a href="login.php">Home</a></li>
            <li><a href="secured.php">Secured Content</a></li>
-           <!-- <li><a href="secured2.php">Secured Page 2</a></li> -->
            <li><a href="logout.php">Log Out</a></li>
            
        </ul>
+
+       <!-- Empty divs that make up a "Burger" lines -->
        <div class="burger">
            <div class="line1"></div>
            <div class="line2"></div>

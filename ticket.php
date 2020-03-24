@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <script src="burger.js"></script>
+    <script src="js/nav.js"></script>
     <title>Login</title>
 </head>
 
@@ -24,8 +24,8 @@
         if (!isset($_SESSION['uname']) && !isset($_SESSION['password'])) {
             header('Location: login.php');
         }
-        $xmlusers = simplexml_load_file('users.xml');
-        $xmltickets = simplexml_load_file('supporttickets.xml');
+        $xmlusers = simplexml_load_file('xml/users.xml');
+        $xmltickets = simplexml_load_file('xml/supporttickets.xml');
 
         $x = $_SESSION['uname'];
         $y = $_SESSION['password'];
@@ -117,7 +117,7 @@
             $doc->preserveWhiteSpace = false;
             $doc->formatOutput = true;
 
-            $supporttickets = simplexml_load_file("supporttickets.xml");
+            $supporttickets = simplexml_load_file("xml/supporttickets.xml");
             // $root = $doc->documentElement;
             //var_dump($root);
 
@@ -129,9 +129,9 @@
                 }
             }
 
-            $ticket->addChild("message",($userfromsession.": ".$input. " at ". date("h:i:s a d M y")));
+            $ticket->addChild("message",($userfromsession.": ".$input. "</br>" ."... at "." ". date("h:i a d M y")));
             // $ticket->addChild($_SESSION['xmlusertype'] == "support" ? "adminmessage" : "usermessage",($input. " at ". date("h:i:s a d M y")));
-            $supporttickets->asXML("supporttickets.xml");
+            $supporttickets->asXML("xml/supporttickets.xml");
             header("Refresh:0.5");
         }
     // End Send Message to XML file depending on user type
@@ -147,7 +147,7 @@
             $doc->preserveWhiteSpace = false;
             $doc->formatOutput = true;
 
-            $supporttickets = simplexml_load_file("supporttickets.xml");
+            $supporttickets = simplexml_load_file("xml/supporttickets.xml");
 
 
             $ticket = null;
@@ -159,7 +159,7 @@
             }
 
             $ticket->status= $statusinput;
-            $supporttickets->asXML("supporttickets.xml");
+            $supporttickets->asXML("xml/supporttickets.xml");
             header("Refresh:0");
         }
     // End Status Change

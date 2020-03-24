@@ -10,9 +10,9 @@ unset($_SESSION['password']);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" type="text/css" href="login.css">
+  <link rel="stylesheet" type="text/css" href="css/login.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-  <script src="burger.js"></script>
+  <script src="js/nav.js"></script>
   <title>Log Out</title>
 </head>
 

@@ -11,9 +11,9 @@ if(!isset($_SESSION['uname']) && !isset($_SESSION['password'] )){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-    <script src="burger.js"></script>
+    <script src="js/nav.js"></script>
     <title>Secured Content</title>
 </head>
 
@@ -28,8 +28,8 @@ if(!isset($_SESSION['uname']) && !isset($_SESSION['password'] )){
     // if (!isset($_SESSION['uname']) && !isset($_SESSION['password'])) {
     //     header('Location: login.php');
     // }
-    $xmlusers = simplexml_load_file('users.xml');
-    $xmltickets = simplexml_load_file('supporttickets.xml');
+    $xmlusers = simplexml_load_file('xml/users.xml');
+    $xmltickets = simplexml_load_file('xml/supporttickets.xml');
 
     $x = $_SESSION['uname'];
     $y = $_SESSION['password'];

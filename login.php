@@ -9,7 +9,7 @@ if (isset($_POST['login'])) {
     $pass = $_POST['password'];
 
     // Load users xml file
-    $xml = simplexml_load_file('users.xml');
+    $xml = simplexml_load_file('xml/users.xml');
 
     // check username and password in every user in XML file
     foreach ($xml->user as $username) {
@@ -45,9 +45,9 @@ if (isset($_POST['login'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" type="text/css" href="login.css">
+  <link rel="stylesheet" type="text/css" href="css/login.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-  <script src="burger.js"></script>
+  <script src="js/nav.js"></script>
   <title>Login</title>
 </head>
 
