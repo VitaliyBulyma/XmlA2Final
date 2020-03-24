@@ -35,15 +35,12 @@ if(!isset($_SESSION['uname']) && !isset($_SESSION['password'] )){
     $y = $_SESSION['password'];
 
 
-
-    //echo $_SESSION['xmlusertype'];
-    //echo $x . $y;
 // Render all Tickets in system depending on user type
     foreach ($xmlusers->user as $username) {
 
         //  render for support users  
-        if ($username->login->username == $x && $username->login->password == $y && $username['type'] == "support") {
-            echo 'This line is for debugging NOT part of interface! User Role: '.$username['type'];
+        if ($username->login->username == $x && $username->login->password == $y && $username['type'] == "Support") {
+            //echo 'This line is for debugging NOT part of interface! User Role: '.$username['type'];
             foreach ($xmltickets->suppticket as $suppticket) {
                 if ($suppticket) {
                     echo
@@ -51,7 +48,7 @@ if(!isset($_SESSION['uname']) && !isset($_SESSION['password'] )){
                 <fieldset>
                     <form action="secured.php" method="POST">
                         <input type="hidden" name="ticketid" value="' . $suppticket->ticketid . '">
-                        <legend>Ticket # ' . $suppticket->ticketid . '<a class="right" href="ticket.php?ticketid='.$suppticket->ticketid.'">Open</a></legend>                        
+                        <legend>Ticket # ' . $suppticket->ticketid . '<a class="right" href="ticket.php?ticketid='.$suppticket->ticketid.'">View</a></legend>                        
                         <p> Status: ' . $suppticket->status . '</p>
                         <p> Date Created: ' . $suppticket->date . ' at: ' . $suppticket->time . ' ' . $suppticket->time["meridien"] . '</p>
                         <p> User ID: ' . $suppticket->userid . '</p>
@@ -65,9 +62,9 @@ if(!isset($_SESSION['uname']) && !isset($_SESSION['password'] )){
 
 
         // render for client users
-        if ($username->login->username == $x && $username->login->password == $y && $username['type'] == "client") {
+        if ($username->login->username == $x && $username->login->password == $y && $username['type'] == "Client") {
             $iduser = (int) $username['id'];
-            echo 'This line is for debugging NOT part of interface! User Role: '.$username['type'];
+            //echo 'This line is for debugging NOT part of interface! User Role: '.$username['type'];
             foreach ($xmltickets->suppticket as $suppticket) {
                 if ($suppticket->userid == $iduser) {
                     echo
@@ -75,7 +72,7 @@ if(!isset($_SESSION['uname']) && !isset($_SESSION['password'] )){
                 <fieldset>
                     <form action="secured.php" method="POST">
                         <input type="hidden" name="ticketid" value="' . $suppticket->ticketid . '">
-                        <legend>Ticket # ' . $suppticket->ticketid . '<a class="right" href="ticket.php?ticketid='.$suppticket->ticketid.'">Open</a></legend> 
+                        <legend>Ticket # ' . $suppticket->ticketid . '<a class="right" href="ticket.php?ticketid='.$suppticket->ticketid.'">View</a></legend> 
                         <p> Status: ' . $suppticket->status . '</p>
                         <p> Date Created: ' . $suppticket->date . ' at: ' . $suppticket->time . ' ' . $suppticket->time["meridien"] . '</p>
                         <p> User ID: ' . $suppticket->userid . '</p>
@@ -89,30 +86,30 @@ if(!isset($_SESSION['uname']) && !isset($_SESSION['password'] )){
     }
 // End Render all Tickets in system depending on user type
 
-    if (isset($_POST['submit'])) {
+    // if (isset($_POST['submit'])) {
 
-        $input =  $_POST['messinput'];
-        $ticketid = $_POST['ticketid'];
+    //     $input =  $_POST['messinput'];
+    //     $ticketid = $_POST['ticketid'];
 
-        $doc = new DOMDocument('1.0', "utf-8");
-        $doc->preserveWhiteSpace = false;
-        $doc->formatOutput = true;
+    //     $doc = new DOMDocument('1.0', "utf-8");
+    //     $doc->preserveWhiteSpace = false;
+    //     $doc->formatOutput = true;
 
-        $supporttickets = simplexml_load_file("supporttickets.xml");
+    //     $supporttickets = simplexml_load_file("supporttickets.xml");
      
-        $ticket = null;
-        foreach ($supporttickets as $t) {
-            if ($ticketid == $t->ticketid) {
-                $ticket = $t;
-                break;
-            }
-        }
+    //     $ticket = null;
+    //     foreach ($supporttickets as $t) {
+    //         if ($ticketid == $t->ticketid) {
+    //             $ticket = $t;
+    //             break;
+    //         }
+    //     }
 
 
 
-        $ticket->addChild($_SESSION['xmlusertype'] == "support" ? "adminmessage" : "usermessage",($input. " at ". date("h:i:s a d M y")));
-        $supporttickets->asXML("supporttickets.xml");
-    }
+    //     $ticket->addChild($_SESSION['xmlusertype'] == "support" ? "adminmessage" : "usermessage",($input. " at ". date("h:i:s a d M y")));
+    //     $supporttickets->asXML("supporttickets.xml");
+    // }
     ?>
     <?php include_once 'footer.php'; ?>
 </body>

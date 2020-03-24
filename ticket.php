@@ -36,11 +36,11 @@
         foreach ($xmlusers->user as $username) {
 
             //  render for support users  
-            if ($username->login->username == $x && $username->login->password == $y && $username['type'] == "support") {
+            if ($username->login->username == $x && $username->login->password == $y && $username['type'] == "Support") {
                 // echo $username['type'];
                 foreach ($xmltickets->suppticket as $suppticket) {
                     if ($suppticket->ticketid == (int)$idfromget) {
-                        echo 'This line is for debugging NOT part of interface! User Role: '.$username['type'];
+                        //echo 'This line is for debugging NOT part of interface! User Role: '.$username['type'];
                         echo
                             '
                     <fieldset>
@@ -76,11 +76,11 @@
 
 
             // render for client users
-            if ($username->login->username == $x && $username->login->password == $y && $username['type'] == "client") {
+            if ($username->login->username == $x && $username->login->password == $y && $username['type'] == "Client") {
                 $iduser = (int) $username['id'];
                 foreach ($xmltickets->suppticket as $suppticket) {
                     if ($suppticket->ticketid == (int)$idfromget) {
-                        echo 'This line is for debugging NOT part of interface! User Role: '.$username['type'];
+                        //echo 'This line is for debugging NOT part of interface! User Role: '.$username['type'];
                         echo
                             '
                     <fieldset>
